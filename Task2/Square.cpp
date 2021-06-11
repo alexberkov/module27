@@ -1,7 +1,7 @@
 #include "header.h"
 
 Square::Square() {
-  center.getPoint();
+  center.setPoint();
   this->getColor();
   cout << "Enter side: ";
   cin >> side;

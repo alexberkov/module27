@@ -1,7 +1,7 @@
 #include "header.h"
 
 Triangle::Triangle() {
-  center.getPoint();
+  center.setPoint();
   this->getColor();
   while (true) {
     cout << "Enter side: ";

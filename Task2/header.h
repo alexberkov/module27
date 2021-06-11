@@ -6,43 +6,46 @@
 using namespace std;
 
 class Point {
-public:
     double x = 0, y = 0;
+public:
     Point();
     Point(double a, double b);
-    void getPoint();
+    void setPoint();
+    pair<double, double> getPoint() const;
     void showPoint() const;
 };
 
 class Shape {
-public:
+protected:
     Point center;
     string color;
+public:
     Shape();
     void getColor();
 };
 
 class Rectangle: public Shape {
-public:
     double width = 0, height = 0;
+public:
     Rectangle();
     Rectangle(Point c, double w, double h);
     void getSize();
+    void setCenter();
     double area() const;
     void show();
 };
 
 class Circle: public Shape {
-public:
     double radius = 0;
+public:
     Circle();
     Rectangle zone() const;
     double area() const;
 };
 
 class Square: public Shape {
-public:
     double side = 0;
+public:
     Square();
     double area() const;
     Rectangle zone() const;

@@ -21,10 +21,15 @@ Rectangle::Rectangle(Point c, double w, double h) {
 }
 
 void Rectangle::show() {
-  Point A(center.x - width / 2 , center.y - height / 2 );
-  Point B(center.x + width / 2 , center.y + height / 2);
+  double x = center.getPoint().first, y = center.getPoint().second;
+  Point A(x - width / 2 , y - height / 2 );
+  Point B(x + width / 2 , y + height / 2);
   cout << "Figure zone: ";
   A.showPoint();
   B.showPoint();
   cout << endl;
+}
+
+void Rectangle::setCenter() {
+  center.setPoint();
 }

@@ -18,7 +18,7 @@ int main() {
       S.zone().show();
     } else if (s == "rectangle") {
       Rectangle R;
-      R.center.getPoint();
+      R.setCenter();
       R.getColor();
       R.getSize();
       cout << "Rectangle area: " << R.area() << endl;

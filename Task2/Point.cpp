@@ -10,11 +10,15 @@ Point::Point(double a, double b) {
   y = b;
 }
 
-void Point::getPoint() {
+void Point::setPoint() {
   cout << "Enter center coordinates: ";
   cin >> x >> y;
 }
 
 void Point::showPoint() const {
   cout << "(" << x << ", " << y << ") " << endl;
+}
+
+pair<double, double> Point::getPoint() const {
+  return make_pair(x, y);
 }

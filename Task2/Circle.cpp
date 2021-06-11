@@ -1,7 +1,7 @@
 #include "header.h"
 
 Circle::Circle() {
-  center.getPoint();
+  center.setPoint();
   this->getColor();
   cout << "Enter radius: ";
   cin >> radius;
