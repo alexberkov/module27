@@ -9,29 +9,37 @@ enum Types {
 };
 
 class Task {
-public:
     int type = NA;
+public:
+    void setType(int t);
+    void putType();
+    int getType() const;
 };
 
 class Worker {
-public:
+protected:
     Task currentTask;
+public:
+    Task getTask();
+    void setTask(int t);
 };
 
 class Manager: public Worker {
-public:
+protected:
     int number = 0;
     vector<Worker> team;
+public:
     explicit Manager(int i);
     void delegate();
     int freeEmployees();
+    vector<Worker> getTeam();
 };
 
 class Director: public Worker {
-public:
     vector<Manager> management;
+public:
     Director();
-    void getTask();
+    void setTask();
     void delegate();
     bool busy();
     void show();

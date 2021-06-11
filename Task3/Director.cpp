@@ -8,14 +8,14 @@ Director::Director() {
   for (int j = 0; j < n; j++) management.emplace_back(Manager(j + 1));
 }
 
-void Director::getTask() {
+void Director::setTask() {
   cout << "Enter company strategy: ";
-  cin >> currentTask.type;
+  currentTask.putType();
 }
 
 void Director::delegate() {
   for (auto &i: management) {
-    i.currentTask = this->currentTask;
+    i.setTask(this->currentTask.getType());
     i.delegate();
   }
 }
@@ -29,7 +29,7 @@ bool Director::busy() {
 
 void Director::show() {
   for (auto &i: management) {
-    for (auto &j: i.team) cout << j.currentTask.type << " ";
+    for (auto &j: i.getTeam()) cout << j.getTask().getType() << " ";
     cout << endl;
   }
 }

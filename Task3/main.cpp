@@ -4,7 +4,7 @@ int main() {
   Director D;
   D.show();
   while (!D.busy()) {
-    D.getTask();
+    D.setTask();
     D.delegate();
     D.show();
   }

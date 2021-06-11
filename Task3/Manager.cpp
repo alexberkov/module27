@@ -10,18 +10,22 @@ Manager::Manager(int i) {
 
 int Manager::freeEmployees() {
   int co = 0;
-  for (auto &i: team) if (i.currentTask.type == NA) co++;
+  for (auto &i: team) if (i.getTask().getType() == NA) co++;
   return co;
 }
 
 void Manager::delegate() {
-  srand(currentTask.type + number);
+  srand(currentTask.getType() + number);
   int tasks = 0;
   if (!team.empty() && this->freeEmployees() != 0) tasks = 1 + (rand() % this->freeEmployees());
   for (auto &i: team) {
-    if (i.currentTask.type == NA && tasks != 0) {
-      i.currentTask.type = rand() % 3;
+    if (i.getTask().getType() == NA && tasks != 0) {
+      i.setTask(rand() % 3);
       tasks--;
     }
   }
+}
+
+vector<Worker> Manager::getTeam() {
+  return team;
 }
