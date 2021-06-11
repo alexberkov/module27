@@ -5,21 +5,23 @@
 using namespace std;
 
 class Branch {
-public:
+protected:
     string elf = "None";
     bool empty = true;
+public:
     Branch();
     Branch* find(const string& name);
+    bool status() const;
 };
 
-class BigBranch: public Branch {
-public:
+class BigBranch: protected Branch {
+protected:
     int branches = 0;
     vector<Branch> middleBranches;
+public:
     BigBranch();
     int tenants();
     int neighbours(const string& name);
-    friend class Tree;
 };
 
 class Tree {

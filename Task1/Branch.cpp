@@ -8,6 +8,10 @@ Branch::Branch() {
   if (elf != "None") empty = false;
 }
 
+bool Branch::status() const {
+  return empty;
+}
+
 BigBranch::BigBranch() {
   branches = 2 + rand() % 2;
   for (int  i = 0; i < branches; i++) {
@@ -24,7 +28,7 @@ Branch * Branch::find(const string& name) {
 int BigBranch::tenants() {
   int co = 0;
   if (!empty) co++;
-  for (auto &i: middleBranches) if (!i.empty) co++;
+  for (auto &i: middleBranches) if (!i.status()) co++;
   return co;
 }
 
